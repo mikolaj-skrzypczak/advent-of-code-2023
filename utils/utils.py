@@ -6,3 +6,8 @@ inputs_dir = f"{os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}/inp
 def load_input(day: int, strip: bool = True) -> list[str]:
     with open(f"{inputs_dir}/{day:02d}.txt", "r") as fp:
         return [line.strip() if strip else line for line in fp.readlines()]
+
+
+def print_solutions(part_1: int, part_2: int) -> None:
+    print(f"Part 1: {part_1}")
+    print(f"Part 2: {part_2}")

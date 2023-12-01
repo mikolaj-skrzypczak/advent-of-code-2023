@@ -2,7 +2,7 @@ import re
 
 import inflect
 
-from utils.utils import load_input
+from utils.utils import load_input, print_solutions
 
 INPUT = load_input(1)
 IE = inflect.engine()
@@ -38,8 +38,7 @@ def part_2() -> int:
 
 
 def main():
-    print(f"Part 1: {part_1()}")
-    print(f"Part 2: {part_2()}")
+    print_solutions(part_1(), part_2())
 
 
 if __name__ == '__main__':
