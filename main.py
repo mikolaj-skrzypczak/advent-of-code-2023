@@ -1,7 +1,7 @@
 import importlib
 
 # choose between 1 and 25
-DAY = 1
+DAY = 2
 
 
 def main() -> None:
