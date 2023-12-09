@@ -16,7 +16,7 @@ def load_raw_input(day: int) -> str:
 
 
 def get_all_numbers_in_string(_string: str, as_strings=False) -> list[Union[int, str]]:
-    return list(map(int if not as_strings else str, re.findall(r"\d+", _string)))
+    return list(map(int if not as_strings else str, re.findall(r"-?\d+", _string)))
 
 
 def print_solutions(part_1: int, part_2: int) -> None:
