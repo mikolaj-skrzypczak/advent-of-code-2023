@@ -1,7 +1,7 @@
+from collections import Counter
 from typing import Callable
 
 from utils.utils import print_solutions, load_input
-from collections import Counter
 
 INPUT = load_input(7)
 

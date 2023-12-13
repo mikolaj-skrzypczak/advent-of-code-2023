@@ -1,7 +1,8 @@
 from typing import Callable, Union
 
-from utils.utils import print_solutions, load_raw_input
 from Levenshtein import distance
+
+from utils.utils import print_solutions, load_raw_input
 
 INPUT = [i.split("\n") for i in load_raw_input(13).split("\n\n")]
 

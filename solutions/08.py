@@ -1,6 +1,6 @@
 import re
-from typing import Callable
 from math import lcm
+from typing import Callable
 
 from utils.utils import load_input, print_solutions
 

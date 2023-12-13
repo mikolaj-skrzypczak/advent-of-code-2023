@@ -1,5 +1,6 @@
-from utils.utils import print_solutions, load_input
 from matplotlib.path import Path
+
+from utils.utils import print_solutions, load_input
 
 GRID = list(map(list, load_input(10)))
 

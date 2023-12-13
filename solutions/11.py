@@ -1,6 +1,7 @@
-from utils.utils import print_solutions, load_input
 from itertools import combinations
 from typing import NamedTuple
+
+from utils.utils import print_solutions, load_input
 
 GRID = list(map(list, load_input(11)))
 
