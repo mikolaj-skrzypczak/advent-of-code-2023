@@ -29,7 +29,7 @@ def solve(row: str, spring_sequences: tuple[int, ...], sequence_length: int = 0)
     n = 0
     if row.startswith(DAMAGED) or row.startswith(WILDCARD):
         n += solve(row[1:], spring_sequences, sequence_length + 1)
-    if (row.startswith(WILDCARD) or row.startswith(OPERATIONAL)) and _are_valid(spring_sequences, sequence_length):
+    if (row.startswith(WILDCARD) or row.startswith(OPERATIONAL)) and are_valid(spring_sequences, sequence_length):
         if sequence_length != 0:
             n += solve(row[1:], spring_sequences[1:], 0)
         else:
@@ -37,11 +37,11 @@ def solve(row: str, spring_sequences: tuple[int, ...], sequence_length: int = 0)
     return n
 
 
-def _are_valid(sequences: tuple[int, ...], current_sequence_len: int) -> bool:
-    def _is_valid_sequence(_sequences: tuple[int, ...], _current_sequence_len: int) -> bool:
+def are_valid(sequences: tuple[int, ...], current_sequence_len: int) -> bool:
+    def is_valid_sequence(_sequences: tuple[int, ...], _current_sequence_len: int) -> bool:
         return _sequences and _sequences[0] == _current_sequence_len
 
-    return _is_valid_sequence(sequences, current_sequence_len) or current_sequence_len == 0
+    return is_valid_sequence(sequences, current_sequence_len) or current_sequence_len == 0
 
 
 def main():
