@@ -15,7 +15,7 @@ DRAWS_PATTERN = r"(\d+ \w+)"
 
 
 def part_1() -> int:
-    def _are_valid(_draws: list) -> bool:
+    def are_valid(_draws: list) -> bool:
         for draw in _draws:
             n_drawn, color = draw.split(" ")
             if int(n_drawn) > LIMITS[color]:
@@ -25,20 +25,20 @@ def part_1() -> int:
     _input = parse_input()
     valid_ids_sum = 0
     for game_id, draws in _input:
-        if _are_valid(draws):
+        if are_valid(draws):
             valid_ids_sum += int(game_id)
     return valid_ids_sum
 
 
 def part_2() -> int:
-    def _get_local_minima(_draws: list) -> dict:
+    def get_local_minima(_draws: list) -> dict:
         _local_minima = defaultdict(int)
         for draw in _draws:
             n_drawn, color = draw.split(" ")
             _local_minima[color] = max(_local_minima[color], int(n_drawn))
         return _local_minima
 
-    def _calculate_power(_local_minima: dict) -> int:
+    def calculate_power(_local_minima: dict) -> int:
         _power = 1
         for _, v in _local_minima.items():
             _power *= v
@@ -47,8 +47,8 @@ def part_2() -> int:
     _input_ = parse_input()
     powers = 0
     for game_id, draws in _input_:
-        local_minima = _get_local_minima(draws)
-        powers += _calculate_power(local_minima)
+        local_minima = get_local_minima(draws)
+        powers += calculate_power(local_minima)
     return powers
 
 
