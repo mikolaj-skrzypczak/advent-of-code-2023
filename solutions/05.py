@@ -42,7 +42,7 @@ def chain_transformations(seeds: list[int]) -> list[int]:
 
 
 def transform_based_on_map(numbers: list[int], maps: list[MapRange]) -> list[int]:
-    def _get_new_number(_number: int) -> int:
+    def get_new_number(_number: int) -> int:
         for _map in maps:
             if _map.source_range <= _number <= _map.source_range + _map.range_length:
                 return _map.destination_range + _number - _map.source_range
@@ -50,7 +50,7 @@ def transform_based_on_map(numbers: list[int], maps: list[MapRange]) -> list[int
 
     new_numbers = []
     for number in numbers:
-        new_numbers.append(_get_new_number(number))
+        new_numbers.append(get_new_number(number))
 
     return new_numbers
 
