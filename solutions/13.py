@@ -9,33 +9,33 @@ INPUT = [i.split("\n") for i in load_raw_input(13).split("\n\n")]
 
 def part_1() -> int:
     return solve(
-        vertical_scoring_algorith=get_vertical_reflection,
-        horizontal_scoring_algorith=get_horizontal_reflection
+        vertical_scoring_algorithm=get_vertical_reflection,
+        horizontal_scoring_algorithm=get_horizontal_reflection
     )
 
 
 def part_2() -> int:
     return solve(
-        vertical_scoring_algorith=get_vertical_reflection_with_one_wrong_tile,
-        horizontal_scoring_algorith=get_horizontal_reflection_with_one_wrong_tile
+        vertical_scoring_algorithm=get_vertical_reflection_with_one_wrong_tile,
+        horizontal_scoring_algorithm=get_horizontal_reflection_with_one_wrong_tile
     )
 
 
 def solve(
-        vertical_scoring_algorith: Callable[[list[str]], int],
-        horizontal_scoring_algorith: Callable[[list[str]], int]
+        vertical_scoring_algorithm: Callable[[list[str]], int],
+        horizontal_scoring_algorithm: Callable[[list[str]], int]
 ) -> int:
-    return sum(get_grid_score(grid, vertical_scoring_algorith, horizontal_scoring_algorith) for grid in INPUT)
+    return sum(get_grid_score(grid, vertical_scoring_algorithm, horizontal_scoring_algorithm) for grid in INPUT)
 
 
 def get_grid_score(
         grid: list[str],
-        vertical_scoring_algorith: Callable[[list[str]], int],
-        horizontal_scoring_algorith: Callable[[list[str]], int]
+        vertical_scoring_algorithm: Callable[[list[str]], int],
+        horizontal_scoring_algorithm: Callable[[list[str]], int]
 ) -> int:
-    if cols_to_left := vertical_scoring_algorith(grid):
+    if cols_to_left := vertical_scoring_algorithm(grid):
         return cols_to_left
-    if rows_above := horizontal_scoring_algorith(grid):
+    if rows_above := horizontal_scoring_algorithm(grid):
         return 100 * rows_above
 
 
