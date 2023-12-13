@@ -20,7 +20,7 @@ def part_1() -> int:
 
 
 def part_2() -> int:
-    def _get_control_digit(_line: str):
+    def get_control_digit(_line: str):
         all_occurrences_with_indexes = set()
         for k, v in regexps_to_values.items():
             if k in _line:
@@ -33,7 +33,7 @@ def part_2() -> int:
         **{IE.number_to_words(i): i for i in range(10)},
         **{f"{i}": i for i in range(10)}
     }
-    control_digits = [_get_control_digit(line) for line in INPUT]
+    control_digits = [get_control_digit(line) for line in INPUT]
     return sum(control_digits)
 
 
